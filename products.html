@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENTUS Cactus Shop</title>
+    <!-- Script to redirect to index.php on reload -->
+    <script>
+        const navEntries = performance.getEntriesByType("navigation");
+        if (navEntries.length > 0 && navEntries[0].type === "reload") {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <!-- นำเข้าฟอนต์ Itim และ Kanit จาก Google Fonts ให้เหมือนใน PDF -->
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3b2b; /* สีเขียวเข้มแบบ MENTUS */
+            --secondary-color: #2c5e43;
+            --bg-color: #112b1a;
+            --text-color: #f4f6f5;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .nav-links a, .logo {
+            font-family: 'Itim', cursive;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: var(--bg-color);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .logo { font-size: 28px; color: white; font-weight: bold; text-decoration: none; }
+        
+        .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: rgba(255,255,255,0.8); 
+            font-size: 18px; 
+            transition: 0.3s; 
+            position: relative;
+            padding: 5px 0;
+        }
+        .nav-links a:hover { color: white; }
+        
+        /* Active State for normal links */
+        .nav-links a.active { color: white; font-weight: bold; }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background-color: #4caf50;
+            border-radius: 2px;
+        }
+
+        /* Button styling */
+        .btn-contact { 
+            background-color: #0b451d; 
+            padding: 8px 25px !important; 
+            border-radius: 25px; 
+            color: white !important; 
+            transition: 0.3s;
+        }
+        .btn-contact:hover { 
+            background-color: #146c2e; 
+            transform: translateY(-2px);
+        }
+        .btn-contact.active-btn { 
+            background-color: #146c2e; 
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+        }
+        .btn-contact.active-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; /* ขยับเส้นลงมาใต้ปุ่ม */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%; /* ให้เส้นสั้นกว่าความกว้างปุ่มนิดหน่อย */
+            height: 2px;
+            background-color: #4caf50;
+            border-radius: 2px;
+            background-color: #4caf50;
+            border-radius: 2px;
+            display: block;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 100ms; }
+        .delay-2 { transition-delay: 200ms; }
+        .delay-3 { transition-delay: 300ms; }
+
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: white; border-radius: 3px; transition: 0.3s; }
+
+        /* Hero Section */
+        .hero-slider-container {
+            position: relative; 
+            width: 100%; 
+            height: 400px; 
+            overflow: hidden; 
+            border-radius: 20px;
+        }
+        .hero {
+            background: linear-gradient(rgba(26, 59, 43, 0.7), rgba(26, 59, 43, 0.7)), url('https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 10px; }
+        .hero p { font-size: 20px; max-width: 600px; margin: 0 auto; }
+
+        /* General Section Layout */
+        .section { padding: 40px 5%; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; color: var(--primary-color); font-size: 36px; margin-bottom: 25px; }
+
+        /* Product Grid (Responsive 1-3 columns) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-align: center;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3); 
+        }
+        .card img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s ease; }
+        .card:hover img { transform: scale(1.05); }
+        .card-body { padding: 20px; }
+        .price { color: #d9534f; font-size: 24px; font-weight: bold; margin: 15px 0; }
+
+        /* About & Articles */
+        .about-text, .article-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        
+        .article-box h3 { color: var(--secondary-color); margin-bottom: 10px; font-size: 22px; }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .contact-info { background: var(--primary-color); color: white; padding: 40px; border-radius: 15px; }
+        .contact-info h3 { font-size: 28px; margin-bottom: 20px; }
+        .contact-info p { font-size: 18px; margin-bottom: 10px; }
+        
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea {
+            width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit;
+        }
+        button {
+            background: var(--primary-color); color: white; border: none; padding: 15px; border-radius: 8px;
+            font-size: 18px; font-family: 'Itim', cursive; cursor: pointer; transition: 0.3s;
+        }
+        button:hover { background: var(--secondary-color); }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color); color: white; text-align: center; padding: 40px 20px 20px;
+        }
+        .features { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+        .features span { background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 20px; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                width: 100%; 
+                text-align: center; 
+                gap: 20px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 20px 0;
+                background: rgba(17, 43, 26, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            }
+            .nav-links.show-menu { display: flex; }
+            .hero-slider-container { height: 250px; }
+            .hero h1 { font-size: 36px; }
+            .section { padding: 25px 5%; }
+            .card img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html" class="logo"><img src="photo/logo.png" alt="MENTUS" style="height: 50px; vertical-align: middle; border-radius: 50%;"> MENTUS</a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="<?= ($current_page == 'index.html') ? 'active' : '' ?>">หน้าแรก</a>
+            <a href="products.html" class="<?= ($current_page == 'products.php') ? 'active' : '' ?>">สินค้า</a>
+            <a href="article.html" class="<?= ($current_page == 'article.php') ? 'active' : '' ?>">บทความ</a>
+            <a href="about.html" class="<?= ($current_page == 'about.php') ? 'active' : '' ?>">เกี่ยวกับเรา</a>
+            <a href="contact.html" class="btn-contact <?= ($current_page == 'contact.php') ? 'active-btn' : '' ?>">ติดต่อเรา</a>
+        </div>
+    </nav>
+
+    <!-- Scroll Animation & Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            if(mobileMenu) {
+                mobileMenu.addEventListener('click', () => {
+                    navLinks.classList.toggle('show-menu');
+                });
+            }
+
+            // Scroll Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+<?php 
+// 3 Featured products
+$featured_products = [
+    [
+        "title" => "ยิมโนคริสไร้หนามด่าง",
+        "price" => "1,250",
+        "img" => "photo/stock1.png",
+        "features" => ["ไร้หนาม", "ด่างสวยชัดเจน", "ฟอร์มสมบูรณ์"]
+    ],
+    [
+        "title" => "ยิมโนมังคุดด่าง",
+        "price" => "1,350",
+        "img" => "photo/stock2.png",
+        "features" => ["ทรงกลมสวย", "สีด่างเด่นชัด", "เลี้ยงง่าย"]
+    ],
+    [
+        "title" => "ยิมโนลูกมังคุด",
+        "price" => "1,450",
+        "img" => "photo/stock3.png",
+        "features" => ["ลักษณะแปลก", "สีเข้มสวยงาม", "สะสมมูลค่าสูง"]
+    ]
+];
+
+// Grid products
+$grid_products = [
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock1.png", "price" => "1,250", "category" => "gymno"],
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock2.png", "price" => "1,350", "category" => "gymno"],
+    ["title" => "ยิมโนลูกมังคุด", "img" => "photo/stock3.png", "price" => "1,450", "category" => "gymno"],
+    ["title" => "ยิมโนโนคริส", "img" => "photo/stock4.png", "price" => "350", "category" => "gymno"],
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock5.png", "price" => "500", "category" => "gymno"],
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock6.png", "price" => "3,500", "category" => "gymno"],
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock7.png", "price" => "1,590", "category" => "gymno"],
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock8.png", "price" => "2,300", "category" => "gymno"],
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock9.png", "price" => "2,900", "category" => "gymno"],
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock10.png", "price" => "1,990", "category" => "gymno"],
+    ["title" => "ยิมโนคริสไร้หนาม", "img" => "photo/stock11.png", "price" => "2,500", "category" => "gymno"],
+    ["title" => "ยิมโนLB Hybridด่าง", "img" => "photo/stock12.png", "price" => "899", "category" => "gymno"],
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock13.png", "price" => "699", "category" => "gymno"],
+    ["title" => "ยิมโนพิงค์ไดมอน", "img" => "photo/stock14.png", "price" => "1,500", "category" => "gymno"],
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส วา นูดัม", "img" => "photo/as1.png", "price" => "500", "category" => "astrophytum"],
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์", "img" => "photo/as2.png", "price" => "650", "category" => "astrophytum"],
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ", "img" => "photo/as3.png", "price" => "450", "category" => "astrophytum"],
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ", "img" => "photo/as4.png", "price" => "850", "category" => "astrophytum"],
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ", "img" => "photo/as5.png", "price" => "350", "category" => "astrophytum"],
+    ["title" => "เเมมขนนกขาว", "img" => "photo/mam1.png", "price" => "50", "category" => "mammillaria"],
+    ["title" => "เเมมขนเเมว", "img" => "photo/mam2.png", "price" => "50", "category" => "mammillaria"]
+];
+
+include 'header.php'; 
+?>
+<style>
+    /* Premium Gold Theme Styles */
+    .gold-text {
+        color: #d4af37; /* Gold color */
+    }
+    .gold-border {
+        border: 1px solid #d4af37;
+    }
+    .featured-container {
+        background-color: #08140c; /* Darker green/black */
+        border: 1px solid #d4af37;
+        border-radius: 20px;
+        padding: 50px;
+        margin-bottom: 60px;
+        position: relative;
+    }
+    .featured-title {
+        text-align: center;
+        color: #d4af37;
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+    .featured-subtitle {
+        text-align: center;
+        color: rgba(255,255,255,0.7);
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+    .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    .featured-card {
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.05), transparent);
+    }
+    .featured-card img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .feature-list {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+        font-size: 12px;
+        color: rgba(255,255,255,0.8);
+    }
+    .feature-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    .price-tag {
+        display: inline-block;
+        border: 1px solid #d4af37;
+        border-radius: 25px;
+        padding: 8px 30px;
+        color: #d4af37;
+        font-size: 20px;
+    }
+    .guarantees-row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border-top: 1px solid rgba(212, 175, 55, 0.3);
+        padding-top: 40px;
+        margin-top: 20px;
+    }
+    .guarantee-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: white;
+    }
+    .guarantee-icon {
+        width: 45px;
+        height: 45px;
+        border: 1px solid #d4af37;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #d4af37;
+    }
+    .guarantee-text h4 {
+        margin: 0;
+        font-size: 16px;
+        color: white;
+    }
+    .guarantee-text p {
+        margin: 0;
+        font-size: 12px;
+        color: rgba(255,255,255,0.6);
+    }
+
+    /* Regular Grid */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    .product-card {
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+        transform: translateY(-10px);
+    }
+    .product-card img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .product-card h3 {
+        color: white;
+        font-size: 18px;
+    }
+    @media (max-width: 992px) {
+        .featured-grid, .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .featured-grid, .product-grid {
+            grid-template-columns: 1fr;
+        }
+        .guarantees-row {
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+        }
+    }
+
+    /* Filter Buttons */
+    .filter-btn {
+        background-color: transparent;
+        border: 1px solid #d4af37;
+        color: #d4af37;
+        padding: 8px 25px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+        background-color: #d4af37;
+        color: #08140c;
+        font-weight: bold;
+    }
+    .category-filters {
+        text-align: center;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+</style>
+
+    <section class="section fade-in" style="padding-top: 40px;">
+        
+        <!-- Featured Banner -->
+        <div class="featured-container fade-in delay-1">
+            <h2 class="featured-title">รายการสินค้าแนะนำ</h2>
+            <p class="featured-subtitle">คัดสรรกระบองเพชรคุณภาพ สวย หายาก ฟอร์มดี สะสมง่าย มูลค่าเพิ่มในอนาคต</p>
+            
+            <div class="featured-grid">
+                <?php foreach($featured_products as $item): ?>
+                <div class="featured-card">
+                    <h3 class="gold-text" style="margin-bottom: 15px; font-size: 22px;">
+                        👑 <?= $item['title'] ?>
+                    </h3>
+                    <img src="<?= $item['img'] ?>" alt="<?= $item['title'] ?>">
+                    
+                    <div class="feature-list">
+                        <?php foreach($item['features'] as $feature): ?>
+                        <div class="feature-item">
+                            <span class="gold-text" style="font-size: 18px;">❖</span>
+                            <span><?= $feature ?></span>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    
+                    <div class="price-tag" style="margin-top: 15px;">ราคา <strong><?= $item['price'] ?></strong> บาท</div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Guarantees -->
+            <div class="guarantees-row">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon"><span style="font-size: 20px;">🛡️</span></div>
+                    <div class="guarantee-text">
+                        <h4>รับประกันคุณภาพ</h4>
+                        <p>คัดต้นสวย แข็งแรง 100%</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon"><span style="font-size: 20px;">🚚</span></div>
+                    <div class="guarantee-text">
+                        <h4>จัดส่งปลอดภัย</h4>
+                        <p>แพ็คอย่างดี จัดส่งรวดเร็ว</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon"><span style="font-size: 20px;">🌱</span></div>
+                    <div class="guarantee-text">
+                        <h4>เพาะเลี้ยงด้วยใจ</h4>
+                        <p>ดูแลทุกขั้นตอนอย่างพิถีพิถัน</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon"><span style="font-size: 20px;">💬</span></div>
+                    <div class="guarantee-text">
+                        <h4>มีบริการให้คำแนะนำ</h4>
+                        <p>สำหรับนักสะสมทุกท่าน</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dots -->
+            <div style="text-align: center; margin-top: 40px;">
+                <span style="display:inline-block; width: 8px; height: 8px; background: #d4af37; border-radius: 50%; margin: 0 4px;"></span>
+                <span style="display:inline-block; width: 8px; height: 8px; background: rgba(212,175,55,0.4); border-radius: 50%; margin: 0 4px;"></span>
+                <span style="display:inline-block; width: 8px; height: 8px; background: rgba(212,175,55,0.4); border-radius: 50%; margin: 0 4px;"></span>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin-bottom: 40px;">
+
+        <!-- All Products Heading and Filters -->
+        <h2 style="text-align: center; color: white; font-size: 36px; margin-bottom: 20px;" class="fade-in">สินค้าทั้งหมด</h2>
+        
+        <div class="category-filters fade-in delay-1">
+            <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+            <button class="filter-btn" data-filter="gymno">ยิมโน</button>
+            <button class="filter-btn" data-filter="mammillaria">แมมมิลาเรีย</button>
+            <button class="filter-btn" data-filter="astrophytum">แอสโตรไฟตัม</button>
+        </div>
+
+        <!-- Regular Grid -->
+        <div class="product-grid fade-in delay-2" id="productGrid">
+            <?php foreach($grid_products as $prod): ?>
+            <div class="product-card product-item" data-category="<?= $prod['category'] ?>">
+                <img src="<?= $prod['img'] ?>" alt="<?= $prod['title'] ?>">
+                <h3><?= $prod['title'] ?></h3>
+                <?php if(isset($prod['price'])): ?>
+                <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา <?= $prod['price'] ?> บาท</p>
+                <?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;" class="fade-in delay-3">
+            <a href="#" id="viewMoreBtn" class="btn-contact" style="display: inline-block; padding: 12px 40px !important;">ดูสินค้าเพิ่มเติม</a>
+        </div>
+
+    </section>
+
+    <!-- Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = Array.from(document.querySelectorAll('.product-item'));
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+
+            // Initialize random 4 products
+            function initializeGrid() {
+                // Hide all cards first
+                productCards.forEach(card => card.style.display = 'none');
+                
+                // Shuffle cards and show only 4
+                const shuffled = [...productCards].sort(() => 0.5 - Math.random());
+                shuffled.slice(0, 4).forEach(card => {
+                    card.style.display = 'block';
+                });
+                
+                viewMoreBtn.style.display = 'inline-block';
+            }
+
+            function showAll(filterValue = 'all') {
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                viewMoreBtn.style.display = 'none'; // Hide button after expanding
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Update active state
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    // When a filter is clicked, we just show all items in that category
+                    showAll(filterValue);
+                });
+            });
+
+            viewMoreBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Force "All" filter to be active
+                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                
+                showAll('all');
+            });
+
+            // Set initial state
+            initializeGrid();
+        });
+    </script>
+
+
+    <!-- Footer -->
+    <footer style="background-color: #0c1c12; padding: 40px 5% 20px; color: #f4f6f5; margin-top: 40px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 25px;">
+            
+            <!-- Brand & Description -->
+            <div>
+                <a href="index.php" style="color: white; font-size: 28px; font-weight: bold; text-decoration: none; font-family: 'Itim', cursive; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="photo/logo.png" alt="MENTUS" style="height: 40px; border-radius: 50%;"> MENTUS
+                </a>
+                <p style="font-size: 15px; line-height: 1.8; opacity: 0.85; margin-bottom: 20px;">
+                    พบกับยิมโนคริสไร้หนามด่าง ยิมโนลูกมังคุด และสายพันธุ์สะสมอีกมากมาย เพาะเลี้ยงในโรงเรือนมาตรฐาน ต้นแข็งแรง ฟอร์มสวย พร้อมส่งทั่วประเทศ
+                </p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://line.me/ti/p/xxZUPujgkP" target="_blank" style="color: white; border: 1px solid rgba(255,255,255,0.2); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='white'; this.style.color='#0c1c12'" onmouseout="this.style.background='transparent'; this.style.color='white'">
+                        <span style="font-size: 12px; font-weight: bold;">LINE</span>
+                    </a>
+                    <a href="https://www.instagram.com/mentus_official?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" style="color: white; border: 1px solid rgba(255,255,255,0.2); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='white'; this.style.color='#0c1c12'" onmouseout="this.style.background='transparent'; this.style.color='white'">
+                        <span style="font-size: 14px; font-weight: bold;">IG</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div>
+                <h4 style="color: white; font-size: 20px; margin-bottom: 25px; font-family: 'Itim', cursive;">จุดเด่นของเรา</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 15px; opacity: 0.85;">
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #4caf50; font-size: 18px;">✔</span> คัดสรรคุณภาพ
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #4caf50; font-size: 18px;">✔</span> เพาะเลี้ยงด้วยใจ
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #4caf50; font-size: 18px;">✔</span> จัดส่งปลอดภัย
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 style="color: white; font-size: 20px; margin-bottom: 25px; font-family: 'Itim', cursive;">ติดต่อเรา</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 15px; opacity: 0.85;">
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4caf50;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <a href="https://line.me/ti/p/xxZUPujgkP" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#4caf50'" onmouseout="this.style.color='inherit'">LINE: men_812550</a>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4caf50;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="https://www.instagram.com/mentus_official?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#4caf50'" onmouseout="this.style.color='inherit'">IG: MENTUS_OFFICAL</a>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 12px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4caf50;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <a href="tel:0922494139" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#4caf50'" onmouseout="this.style.color='inherit'">โทร: 092-249-4139</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); text-align: center; padding-top: 25px; font-size: 14px; opacity: 0.6;">
+            &copy; 2026 MENTUS | Creative Design & Website Development
+        </div>
+    </footer>
+
+</body>
+</html>
