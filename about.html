@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MENTUS Cactus Shop</title>
-    <!-- Script to redirect to index.php on reload -->
+    <!-- Script to redirect to index.html on reload -->
     <script>
         const navEntries = performance.getEntriesByType("navigation");
         if (navEntries.length > 0 && navEntries[0].type === "reload") {
@@ -242,11 +242,11 @@
             <span class="bar"></span>
         </div>
         <div class="nav-links">
-            <a href="index.html" class="<?= ($current_page == 'index.html') ? 'active' : '' ?>">หน้าแรก</a>
-            <a href="products.html" class="<?= ($current_page == 'products.php') ? 'active' : '' ?>">สินค้า</a>
-            <a href="article.html" class="<?= ($current_page == 'article.php') ? 'active' : '' ?>">บทความ</a>
-            <a href="about.html" class="<?= ($current_page == 'about.php') ? 'active' : '' ?>">เกี่ยวกับเรา</a>
-            <a href="contact.html" class="btn-contact <?= ($current_page == 'contact.php') ? 'active-btn' : '' ?>">ติดต่อเรา</a>
+            <a href="index.html" class="">หน้าแรก</a>
+            <a href="products.html" class="">สินค้า</a>
+            <a href="article.html" class="">บทความ</a>
+            <a href="about.html" class="active">เกี่ยวกับเรา</a>
+            <a href="contact.html" class="btn-contact ">ติดต่อเรา</a>
         </div>
     </nav>
 
@@ -275,7 +275,6 @@
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
     </script>
-
 
 <style>
     .about-header {
@@ -446,14 +445,13 @@
     
 </section>
 
-
     <!-- Footer -->
     <footer style="background-color: #0c1c12; padding: 40px 5% 20px; color: #f4f6f5; margin-top: 40px;">
         <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 25px;">
             
             <!-- Brand & Description -->
             <div>
-                <a href="index.php" style="color: white; font-size: 28px; font-weight: bold; text-decoration: none; font-family: 'Itim', cursive; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <a href="index.html" style="color: white; font-size: 28px; font-weight: bold; text-decoration: none; font-family: 'Itim', cursive; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
                     <img src="photo/logo.png" alt="MENTUS" style="height: 40px; border-radius: 50%;"> MENTUS
                 </a>
                 <p style="font-size: 15px; line-height: 1.8; opacity: 0.85; margin-bottom: 20px;">
