@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php
+$jsonData = file_exists('data/content.json') ? json_decode(file_get_contents('data/content.json'), true) : [];
+$pageContent = $jsonData['about'] ?? '';
+include 'header.php'; 
+?>
 
 <style>
     .about-header {
@@ -118,6 +122,72 @@
         border-left: 3px solid #d4af37;
         padding-left: 20px;
     }
+
+    /* Tiptap Editor Styles */
+    .editor-wrapper {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+    .tiptap {
+        min-height: 200px;
+        outline: none;
+        color: rgba(255,255,255,0.85);
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    .tiptap p {
+        margin-bottom: 1em;
+    }
+    .tiptap strong {
+        color: #d4af37;
+    }
+    .tiptap h1, .tiptap h2, .tiptap h3 {
+        color: #d4af37;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .editor-toolbar {
+        display: none; /* Hidden by default, shown via JS if localhost */
+        gap: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        flex-wrap: wrap;
+    }
+    .editor-btn {
+        background: transparent;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        color: #d4af37;
+        border-radius: 5px;
+        padding: 5px 12px;
+        cursor: pointer;
+        font-family: inherit;
+        transition: 0.2s;
+    }
+    .editor-btn:hover, .editor-btn.is-active {
+        background: #d4af37;
+        color: #08140c;
+    }
+    
+    #saveBtn {
+        display: none; /* Shown via JS */
+        margin-top: 15px;
+        background: #d4af37;
+        color: #08140c;
+        border: none;
+        padding: 8px 25px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    #saveBtn:hover {
+        background: #e6c55b;
+    }
+
 </style>
 
 <section class="section fade-in" style="padding-top: 20px; padding-bottom: 60px;">
@@ -133,21 +203,25 @@
             <img src="photo/MENTUS.png" alt="Mentus Cactus Journey">
         </div>
         
+        
         <div class="about-content fade-in delay-3">
-            <p class="story-text">
-                ย้อนกลับไปช่วงโควิดปี พ.ศ. 2564 ตอนนั้นผมยังเป็นเด็กนักเรียน ม.2 ที่ต้อง Work (และ Learn) from Home ชีวิตวนเวียนอยู่กับการเรียนออนไลน์ เล่นเกม ไถโซเชียล ไปจนถึงสวมบทเป็น "ช่างจำเป็น" ช่วยคุณพ่อซ่อมรถ ทั้งปะยาง เปลี่ยนน้ำมันเครื่อง เปลี่ยนโซ่สเตอร์... เอาเป็นว่าทำมาหมดแล้วครับ! แต่ด้วยความที่เป็นคนเบื่อง่าย ทำอะไรแป๊บๆ ก็เบื่อ กิจกรรมพวกนี้เลยยังไม่ค่อยตอบโจทย์ผมเท่าไหร่
-            </p>
-            <p class="story-text">
-                จนกระทั่งเช้าวันพฤหัสบดีวันหนึ่ง คุณแม่ชวนไปเดินตลาดเช้าในตัวเมืองสระบุรี ท่ามกลางร้านรวงมากมาย สายตาผมไปสะดุดเข้ากับ <strong>"ร้านขายกระบองเพชร"</strong> ความรู้สึกแรกที่ผุดขึ้นมาคือ "เอ๊ะ... ทำไมมันน่ารักจัง" ตอนนั้นความรู้ในหัวคือศูนย์ ไม่รู้หรอกครับว่าสายพันธุ์อะไร โคลนไหนเรียกยังไง รู้แค่อยากเอากลับบ้าน เลยจัดมาเบาๆ 6 ต้น... และแน่นอนครับ ผ่านไปแค่อาทิตย์เดียว งอกเพิ่มมาอีก 5 ต้น รวมเป็น 11 ต้นถ้วน! นี่แหละครับ... วงการหนามเข้าแล้วออกยากจริงๆ
-            </p>
-            <p class="story-text">
-                <strong>เข้าวงการ F ของออนไลน์แบบเต็มตัว</strong> พอได้ต้นไม้มา ทีนี้ก็เข้าสู่โหมดเอาจริงครับ ผมเริ่มหาซื้ออุปกรณ์ ทั้งดินปลูกสำเร็จรูป หินโรยหน้า กาบมะพร้าว ปุ๋ย มาลองเปลี่ยนกระถางและเด็ดหน่อชำเอง ช่วงนั้นการสั่งของออนไลน์กำลังบูม ผมก็เริ่มหัด F ต้นไม้จากแพลตฟอร์มต่างๆ ควบคู่ไปกับการนั่งเรียนออนไลน์ ผมเริ่มศึกษาเจาะลึกถึงชื่อสายพันธุ์และโคลนต่างๆ จนค้นพบว่าโลกของแคคตัสนั้นกว้างใหญ่และมีเสน่ห์มาก ถึงขั้นชวนคุณแม่ไปบุกตลาดต้นไม้ที่ใหญ่ที่สุดในนครนายก สรุปวันนั้นแม่โดนวงการบอนสีและบอนด่างตกไปตามระเบียบครับ
-            </p>
-            <p class="story-text">
-                เข้าสู่ปี พ.ศ. 2565 ประชากรแคคตัสเริ่มล้นหน้าบ้าน ผมเลยตัดสินใจอพยพน้องๆ มาตั้งแคมป์ข้างบ้านแทน ซื้อผ้าใบมาขึงทำหลังคา ซื้อชั้นวางมาจัดให้เป็นระเบียบ และเริ่มสะสมสายพันธุ์ใหม่ๆ จากการเป็นแค่ "ผู้เลี้ยง" ผมเริ่มขยับมาทำเองทุกขั้นตอน ตั้งแต่ผสมดินปลูก ยันการผสมเกสรข้ามสายพันธุ์ วินาทีที่เห็นต้นอ่อนเล็กๆ เติบโตมาจากเมล็ดที่เราผสมเอง มันเป็นความภูมิใจที่บอกไม่ถูก
-            </p>
+            
+            <div class="editor-wrapper">
+                <div class="editor-toolbar" id="editorToolbar">
+                    <button class="editor-btn" id="btnBold">B</button>
+                    <button class="editor-btn" id="btnItalic">I</button>
+                    <button class="editor-btn" id="btnH2">H2</button>
+                    <button class="editor-btn" id="btnBullet">Bullet List</button>
+                </div>
+                
+                <!-- Tiptap will mount here -->
+                <div id="editor-container"></div>
+                
+                <button id="saveBtn">💾 บันทึกเนื้อหา (Save)</button>
+            </div>
             
             <div class="name-origin-card">
+
                 <h3 class="name-title">✨ ทำไมต้องชื่อ MENTUS?</h3>
                 <ul class="name-breakdown">
                     <li>
@@ -168,5 +242,71 @@
     </div>
     
 </section>
+
+
+<script type="module">
+    import { Editor } from 'https://esm.sh/@tiptap/core';
+    import StarterKit from 'https://esm.sh/@tiptap/starter-kit';
+
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    
+    // PHP rendered JSON string
+    const initialContent = <?php echo json_encode($pageContent); ?>;
+    
+    // Show tools only if localhost
+    if (isLocalhost) {
+        document.getElementById('editorToolbar').style.display = 'flex';
+        document.getElementById('saveBtn').style.display = 'inline-block';
+    }
+
+    const editor = new Editor({
+        element: document.querySelector('#editor-container'),
+        extensions: [StarterKit],
+        content: initialContent,
+        editable: isLocalhost,
+        onTransaction: () => {
+            // Update active states
+            document.getElementById('btnBold').classList.toggle('is-active', editor.isActive('bold'));
+            document.getElementById('btnItalic').classList.toggle('is-active', editor.isActive('italic'));
+            document.getElementById('btnH2').classList.toggle('is-active', editor.isActive('heading', { level: 2 }));
+            document.getElementById('btnBullet').classList.toggle('is-active', editor.isActive('bulletList'));
+        }
+    });
+
+    // Toolbar actions
+    document.getElementById('btnBold').addEventListener('click', () => editor.chain().focus().toggleBold().run());
+    document.getElementById('btnItalic').addEventListener('click', () => editor.chain().focus().toggleItalic().run());
+    document.getElementById('btnH2').addEventListener('click', () => editor.chain().focus().toggleHeading({ level: 2 }).run());
+    document.getElementById('btnBullet').addEventListener('click', () => editor.chain().focus().toggleBulletList().run());
+
+    // Save action
+    const saveBtn = document.getElementById('saveBtn');
+    if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+            const html = editor.getHTML();
+            saveBtn.textContent = 'กำลังบันทึก...';
+            
+            fetch('save_content.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ page: 'about', content: html })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    saveBtn.textContent = 'บันทึกสำเร็จ!';
+                    setTimeout(() => saveBtn.textContent = '💾 บันทึกเนื้อหา (Save)', 2000);
+                } else {
+                    alert('Error: ' + data.error);
+                    saveBtn.textContent = '💾 บันทึกเนื้อหา (Save)';
+                }
+            })
+            .catch(err => {
+                alert('Request failed');
+                saveBtn.textContent = '💾 บันทึกเนื้อหา (Save)';
+            });
+        });
+    }
+</script>
 
 <?php include 'footer.php'; ?>
