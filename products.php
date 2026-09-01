@@ -338,9 +338,36 @@ include 'header.php';
         width: 18px;
         height: 18px;
     }
+    /* Custom Range Slider */
     input[type=range] {
+        -webkit-appearance: none;
         width: 100%;
-        accent-color: #d4af37;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        outline: none;
+        margin: 10px 0;
+    }
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #d4af37;
+        cursor: pointer;
+        transition: transform 0.1s;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+    }
+    input[type=range]::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #d4af37;
+        cursor: pointer;
+        border: none;
     }
     .range-labels {
         display: flex;
@@ -526,14 +553,20 @@ include 'header.php';
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
             const priceRange = document.getElementById('priceRange');
-            const priceValue = document.getElementById('priceVal'); // Fixed ID
+            const priceValue = document.getElementById('priceVal');
             const sizeRange = document.getElementById('sizeRange');
-            const sizeValue = document.getElementById('sizeVal'); // Fixed ID
-            const categoryRadios = document.querySelectorAll('input[name="category"]'); // Using radio buttons
+            const sizeValue = document.getElementById('sizeVal');
+            const categoryRadios = document.querySelectorAll('input[name="category"]');
             const productCards = Array.from(document.querySelectorAll('.product-item'));
             const noResult = document.getElementById('noResult');
             
             let activeCategory = 'all';
+            
+            // Function to update the slider background to show progress
+            function updateSliderProgress(slider) {
+                const val = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+                slider.style.background = `linear-gradient(to right, #d4af37 0%, #d4af37 ${val}%, rgba(255, 255, 255, 0.2) ${val}%, rgba(255, 255, 255, 0.2) 100%)`;
+            }
 
             function filterProducts() {
                 const searchTerm = searchInput.value.toLowerCase();
@@ -573,11 +606,13 @@ include 'header.php';
             
             priceRange.addEventListener('input', (e) => {
                 priceValue.textContent = parseInt(e.target.value).toLocaleString();
+                updateSliderProgress(e.target);
                 filterProducts();
             });
 
             sizeRange.addEventListener('input', (e) => {
                 sizeValue.textContent = parseFloat(e.target.value).toFixed(1);
+                updateSliderProgress(e.target);
                 filterProducts();
             });
 
@@ -591,6 +626,8 @@ include 'header.php';
             });
 
             // Initial load
+            updateSliderProgress(priceRange);
+            updateSliderProgress(sizeRange);
             filterProducts();
         });
     </script>
