@@ -319,14 +319,14 @@ include 'header.php';
 
 
 <script type="module">
-    import { Editor } from 'https://esm.sh/@tiptap/core';
-    import StarterKit from 'https://esm.sh/@tiptap/starter-kit';
-    import Underline from 'https://esm.sh/@tiptap/extension-underline';
-    import TextAlign from 'https://esm.sh/@tiptap/extension-text-align';
-    import Link from 'https://esm.sh/@tiptap/extension-link';
-    import Image from 'https://esm.sh/@tiptap/extension-image';
-    import TextStyle from 'https://esm.sh/@tiptap/extension-text-style';
-    import Color from 'https://esm.sh/@tiptap/extension-color';
+    import { Editor } from 'https://esm.sh/@tiptap/core@2.2.4';
+    import StarterKit from 'https://esm.sh/@tiptap/starter-kit@2.2.4';
+    import Underline from 'https://esm.sh/@tiptap/extension-underline@2.2.4';
+    import TextAlign from 'https://esm.sh/@tiptap/extension-text-align@2.2.4';
+    import Link from 'https://esm.sh/@tiptap/extension-link@2.2.4';
+    import Image from 'https://esm.sh/@tiptap/extension-image@2.2.4';
+    import TextStyle from 'https://esm.sh/@tiptap/extension-text-style@2.2.4';
+    import Color from 'https://esm.sh/@tiptap/extension-color@2.2.4';
 
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const initialContent = <?php echo json_encode($pageContent); ?>;
