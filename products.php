@@ -23,27 +23,28 @@ $featured_products = [
 
 // Grid products
 $grid_products = [
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock1.png", "price" => "1,250", "category" => "gymno", "raw_price" => 1250, "size" => 3.2], 
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock2.png", "price" => "1,350", "category" => "gymno", "raw_price" => 1350, "size" => 6.1], 
-    ["title" => "ยิมโนลูกมังคุด", "img" => "photo/stock3.png", "price" => "1,450", "category" => "gymno", "raw_price" => 1450, "size" => 14.0], 
-    ["title" => "ยิมโนโนคริส", "img" => "photo/stock4.png", "price" => "350", "category" => "gymno", "raw_price" => 350, "size" => 2.6], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock5.png", "price" => "500", "category" => "gymno", "raw_price" => 500, "size" => 3.1], 
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock6.png", "price" => "3,500", "category" => "gymno", "raw_price" => 3500, "size" => 7.5], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock7.png", "price" => "1,590", "category" => "gymno", "raw_price" => 1590, "size" => 3.4], 
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock8.png", "price" => "2,300", "category" => "gymno", "raw_price" => 2300, "size" => 3.2], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock9.png", "price" => "2,900", "category" => "gymno", "raw_price" => 2900, "size" => 12.2], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock10.png", "price" => "1,990", "category" => "gymno", "raw_price" => 1990, "size" => 2.5], 
-    ["title" => "ยิมโนคริสไร้หนาม", "img" => "photo/stock11.png", "price" => "2,500", "category" => "gymno", "raw_price" => 2500, "size" => 12.5], 
-    ["title" => "ยิมโนLB Hybridด่าง", "img" => "photo/stock12.png", "price" => "899", "category" => "gymno", "raw_price" => 899, "size" => 6.7], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock13.png", "price" => "699", "category" => "gymno", "raw_price" => 699, "size" => 8.7], 
-    ["title" => "ยิมโนพิงค์ไดมอน", "img" => "photo/stock14.png", "price" => "1,500", "category" => "gymno", "raw_price" => 1500, "size" => 4.4], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส วา นูดัม", "img" => "photo/as1.png", "price" => "500", "category" => "astrophytum", "raw_price" => 500, "size" => 5.6], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์", "img" => "photo/as2.png", "price" => "650", "category" => "astrophytum", "raw_price" => 650, "size" => 12.3], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ", "img" => "photo/as3.png", "price" => "450", "category" => "astrophytum", "raw_price" => 450, "size" => 4.3], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ", "img" => "photo/as4.png", "price" => "850", "category" => "astrophytum", "raw_price" => 850, "size" => 4.6], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ", "img" => "photo/as5.png", "price" => "350", "category" => "astrophytum", "raw_price" => 350, "size" => 13.3], 
-    ["title" => "เเมมขนนกขาว", "img" => "photo/mam1.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 7.7], 
-    ["title" => "เเมมขนเเมว", "img" => "photo/mam2.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 8.0]
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock1.png", "price" => "1,250", "category" => "gymno", "raw_price" => 1250, "size" => 3.2, "size" => "13"], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock2.png", "price" => "1,350", "category" => "gymno", "raw_price" => 1350, "size" => 6.1, "size" => "4"], 
+    ["title" => "ยิมโนลูกมังคุด", "img" => "photo/stock3.png", "price" => "1,450", "category" => "gymno", "raw_price" => 1450, "size" => 14.0, "size" => "3"], 
+    ["title" => "ยิมโนโนคริส", "img" => "photo/stock4.png", "price" => "350", "category" => "gymno", "raw_price" => 350, "size" => 2.6, "size" => "14"], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock5.png", "price" => "500", "category" => "gymno", "raw_price" => 500, "size" => 3.1, "size" => "7"], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock6.png", "price" => "3,500", "category" => "gymno", "raw_price" => 3500, "size" => 7.5, "size" => "6"], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock7.png", "price" => "1,590", "category" => "gymno", "raw_price" => 1590, "size" => 3.4, "size" => "6"], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock8.png", "price" => "2,300", "category" => "gymno", "raw_price" => 2300, "size" => 3.2, "size" => "5"], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock9.png", "price" => "2,900", "category" => "gymno", "raw_price" => 2900, "size" => 12.2, "size" => "14"], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock10.png", "price" => "1,990", "category" => "gymno", "raw_price" => 1990, "size" => 2.5, "size" => "4"], 
+    ["title" => "ยิมโนคริสไร้หนาม", "img" => "photo/stock11.png", "price" => "2,500", "category" => "gymno", "raw_price" => 2500, "size" => 12.5, "size" => "13"], 
+    ["title" => "ยิมโนLB Hybridด่าง", "img" => "photo/stock12.png", "price" => "899", "category" => "gymno", "raw_price" => 899, "size" => 6.7, "size" => "14"], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock13.png", "price" => "699", "category" => "gymno", "raw_price" => 699, "size" => 8.7, "size" => "11"], 
+    ["title" => "ยิมโนพิงค์ไดมอน", "img" => "photo/stock14.png", "price" => "1,500", "category" => "gymno", "raw_price" => 1500, "size" => 4.4, "size" => "4"], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส วา นูดัม", "img" => "photo/as1.png", "price" => "500", "category" => "astrophytum", "raw_price" => 500, "size" => 5.6, "size" => "12"], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์", "img" => "photo/as2.png", "price" => "650", "category" => "astrophytum", "raw_price" => 650, "size" => 12.3, "size" => "9"], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ", "img" => "photo/as3.png", "price" => "450", "category" => "astrophytum", "raw_price" => 450, "size" => 4.3, "size" => "3"], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ", "img" => "photo/as4.png", "price" => "850", "category" => "astrophytum", "raw_price" => 850, "size" => 4.6, "size" => "3"], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ", "img" => "photo/as5.png", "price" => "350", "category" => "astrophytum", "raw_price" => 350, "size" => 13.3, "size" => "4"], 
+    ["title" => "เเมมขนนกขาว", "img" => "photo/mam1.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 7.7, "size" => "6"], 
+    ["title" => "เเมมขนเเมว", "img" => "photo/mam2.png", "price" => "50", "category" => "mammillaria", "size" => "6"]
+];, "raw_price" => 50, "size" => 8.0]
 ];
 
 include 'header.php'; 
@@ -280,6 +281,112 @@ include 'header.php';
         gap: 15px;
         flex-wrap: wrap;
     }
+
+    /* Sidebar Layout */
+    .products-layout {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        margin-bottom: 50px;
+    }
+    .sidebar-filter {
+        flex: 0 0 280px;
+        background: #08140c;
+        border: 1px solid #d4af37;
+        border-radius: 15px;
+        padding: 25px;
+        position: sticky;
+        top: 100px;
+    }
+    .sidebar-filter h3 {
+        color: #d4af37;
+        margin-bottom: 25px;
+        font-size: 24px;
+        border-bottom: 1px solid rgba(212,175,55,0.3);
+        padding-bottom: 15px;
+        font-family: 'Itim', cursive;
+    }
+    .filter-group {
+        margin-bottom: 25px;
+    }
+    .filter-group label.group-title {
+        display: block;
+        color: white;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .filter-group input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(212,175,55,0.5);
+        background: rgba(255,255,255,0.05);
+        color: white;
+        font-family: inherit;
+    }
+    .filter-radio {
+        display: flex !important;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255,255,255,0.8) !important;
+        cursor: pointer;
+        font-size: 16px !important;
+        margin-bottom: 12px !important;
+        font-weight: normal !important;
+    }
+    .filter-radio input {
+        accent-color: #d4af37;
+        width: 18px;
+        height: 18px;
+    }
+    input[type=range] {
+        width: 100%;
+        accent-color: #d4af37;
+    }
+    .range-labels {
+        display: flex;
+        justify-content: space-between;
+        color: rgba(255,255,255,0.6);
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .product-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    .size-tag {
+        display: inline-block;
+        background: rgba(212,175,55,0.2);
+        color: #d4af37;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    
+    @media (max-width: 992px) {
+        .products-layout {
+            flex-direction: column;
+        }
+        .sidebar-filter {
+            width: 100%;
+            position: relative;
+            top: 0;
+        }
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+            width: 100%;
+        }
+    }
+    @media (max-width: 768px) {
+        .product-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
 </style>
 
     <section class="section fade-in" style="padding-top: 40px;">
@@ -353,53 +460,64 @@ include 'header.php';
 
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin-bottom: 40px;">
 
-        <!-- All Products Heading and Filters -->
-        <h2 style="text-align: center; color: white; font-size: 36px; margin-bottom: 20px;" class="fade-in">สินค้าทั้งหมด</h2>
         
+        <!-- All Products Heading -->
+        <h2 style="text-align: center; color: white; font-size: 36px; margin-bottom: 40px;" class="fade-in">สินค้าทั้งหมด</h2>
         
-        <!-- Advanced Filter Panel -->
-        <div class="filter-panel fade-in delay-1">
-            <div class="filter-row">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="🔍 ค้นหาสินค้า (พิมพ์ชื่อ หรือสายพันธุ์)...">
+        <div class="products-layout fade-in delay-1">
+            <!-- Sidebar -->
+            <aside class="sidebar-filter">
+                <h3>ตัวกรองสินค้า</h3>
+                
+                <div class="filter-group">
+                    <label class="group-title">🔍 ค้นหาสินค้า</label>
+                    <input type="text" id="searchInput" placeholder="พิมพ์ชื่อเพื่อค้นหา...">
                 </div>
                 
-                <div class="slider-group">
-                    <label><span>ราคา: </span> <span id="priceValue">สูงสุด 3,500 ฿</span></label>
+                <div class="filter-group">
+                    <label class="group-title">🌵 หมวดหมู่</label>
+                    <label class="filter-radio"><input type="radio" name="category" value="all" checked> ทั้งหมด</label>
+                    <label class="filter-radio"><input type="radio" name="category" value="gymno"> ยิมโน</label>
+                    <label class="filter-radio"><input type="radio" name="category" value="mammillaria"> แมมมิลาเรีย</label>
+                    <label class="filter-radio"><input type="radio" name="category" value="astrophytum"> แอสโตรไฟตัม</label>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="group-title">💰 ราคาสูงสุด: <span id="priceVal" class="gold-text">3500</span> บาท</label>
                     <input type="range" id="priceRange" min="0" max="3500" value="3500" step="50">
+                    <div class="range-labels"><span>0</span><span>3,500</span></div>
                 </div>
                 
-                <div class="slider-group">
-                    <label><span>ขนาด (cm): </span> <span id="sizeValue">สูงสุด 15.0 cm</span></label>
-                    <input type="range" id="sizeRange" min="0" max="15" value="15" step="0.5">
+                <div class="filter-group">
+                    <label class="group-title">📏 ขนาดสูงสุด: <span id="sizeVal" class="gold-text">15</span> cm</label>
+                    <input type="range" id="sizeRange" min="0" max="15" value="15" step="1">
+                    <div class="range-labels"><span>0 cm</span><span>15 cm</span></div>
+                </div>
+            </aside>
+
+            <!-- Main Grid -->
+            <div class="product-grid" id="productGrid">
+                <?php foreach($grid_products as $prod): ?>
+                <div class="product-card product-item" 
+                     data-category="<?= $prod['category'] ?>" 
+                     data-price="<?= str_replace(',', '', $prod['price']) ?>" 
+                     data-size="<?= $prod['size'] ?>" 
+                     data-title="<?= strtolower($prod['title']) ?>">
+                    <img src="<?= $prod['img'] ?>" alt="<?= $prod['title'] ?>">
+                    <h3><?= $prod['title'] ?></h3>
+                    <?php if(isset($prod['price'])): ?>
+                    <p class="gold-text" style="margin-top: 5px; font-weight: bold; font-size: 18px;">ราคา <?= $prod['price'] ?> บาท</p>
+                    <div class="size-tag">ขนาด <?= $prod['size'] ?> cm</div>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+                
+                <div id="noResult" style="display:none; grid-column: 1 / -1; text-align: center; color: white; padding: 40px;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🌵</div>
+                    <h3 style="color: #d4af37;">ไม่พบสินค้าที่ค้นหา</h3>
+                    <p style="opacity: 0.7;">ลองปรับเปลี่ยนตัวกรองใหม่อีกครั้ง</p>
                 </div>
             </div>
-            
-            <div class="category-filters">
-                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
-                <button class="filter-btn" data-filter="gymno">ยิมโน</button>
-                <button class="filter-btn" data-filter="mammillaria">แมมมิลาเรีย</button>
-                <button class="filter-btn" data-filter="astrophytum">แอสโตรไฟตัม</button>
-            </div>
-        </div>
-
-
-        <!-- Regular Grid -->
-        <div class="product-grid fade-in delay-2" id="productGrid">
-            <?php foreach($grid_products as $prod): ?>
-            <div class="product-card product-item" data-category="<?= $prod['category'] ?>" data-price="<?= $prod['raw_price'] ?>" data-size="<?= $prod['size'] ?>">
-                <img src="<?= $prod['img'] ?>" alt="<?= $prod['title'] ?>">
-                <h3><?= $prod['title'] ?></h3>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: <?= $prod['size'] ?> cm</p>
-                <?php if(isset($prod['price'])): ?>
-                <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา <?= $prod['price'] ?> บาท</p>
-                <?php endif; ?>
-            </div>
-            <?php endforeach; ?>
-        </div>
-
-        <div style="text-align: center; margin-bottom: 40px;" class="fade-in delay-3">
-            <a href="#" id="viewMoreBtn" class="btn-contact" style="display: inline-block; padding: 12px 40px !important;">ดูสินค้าเพิ่มเติม</a>
         </div>
 
     </section>
