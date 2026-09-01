@@ -1,43 +1,49 @@
-# 🌵 MENTUS Cactus Shop
+# 🛠 MENTUS Cactus Shop - Technology Stack
 
-ยินดีต้อนรับสู่โปรเจกต์ **MENTUS Cactus Shop** เว็บไซต์ร้านขายต้นกระบองเพชร (Cactus) สายพันธุ์พรีเมียม โดยเน้นที่ความสวยงาม เรียบหรู และทันสมัย
-
-## ✨ Features (จุดเด่นของเว็บไซต์)
-- **Premium Design:** ออกแบบด้วยโทนสีเขียวเข้มและสีทอง ให้ความรู้สึกหรูหราและเข้ากับธรรมชาติ
-- **Responsive Layout:** รองรับการแสดงผลทุกหน้าจอ ทั้งมือถือ แท็บเล็ต และคอมพิวเตอร์ (Mobile-First)
-- **Interactive UI:** มีลูกเล่นแอนิเมชัน (Fade-in), เอฟเฟกต์ตอนชี้เมาส์ (Hover Effect) และสไลด์โชว์รูปภาพ
-- **GitHub Pages Ready:** รองรับการอัปโหลดและแสดงผลผ่าน GitHub Pages (ผ่านไฟล์ `.html`)
-
-## 🛠 Technologies Used (เทคโนโลยีที่ใช้)
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6)
-- **Text Editor:** Tiptap Editor (ระบบแก้ไขข้อความแบบ Rich Text)
-- **Backend & Data:** PHP 8.x (สำหรับระบบ Modular และสคริปต์เซฟข้อมูล) และ JSON (ฐานข้อมูลแบบ Flat-file)
-- **Fonts:** Google Fonts (`Itim` สำหรับหัวข้อ, `Kanit` สำหรับเนื้อหาทั่วไป)
-- **Tools & Version Control:** Git, GitHub, GitHub Pages และ MAMP / XAMPP
-
-*(สามารถอ่านรายละเอียดเชิงลึกได้ที่ไฟล์ [TECH_STACK.md](TECH_STACK.md))*
-
-## 📂 Project Structure (โครงสร้างโปรเจกต์)
-โปรเจกต์นี้มีโครงสร้างไฟล์สองส่วนหลักๆ คือ:
-1. **ไฟล์ PHP (`.php`)**: เป็นซอร์สโค้ดหลักที่ใช้พัฒนา (รันผ่าน MAMP / XAMPP / Localhost)
-2. **ไฟล์ HTML (`.html`)**: เป็นไฟล์ที่ถูกแปลงมาจาก PHP เพื่อใช้อัปโหลดและแสดงผลจริงบนระบบ **GitHub Pages**
-
-### หน้าเพจต่างๆ
-- `index.html` / `.php` : หน้าแรก (Home)
-- `products.html` / `.php` : หน้ารายการสินค้าทั้งหมด (Products)
-- `article.html` / `.php` : หน้าบทความและเกร็ดความรู้ (Articles)
-- `about.html` / `.php` : หน้าประวัติความเป็นมาและจุดเริ่มต้นของร้าน (About Us)
-- `contact.html` / `.php` : หน้าช่องทางการติดต่อ (Contact)
-
-## 🚀 How to Run Locally (วิธีเปิดใช้งานในเครื่อง)
-หากต้องการแก้ไขโค้ด PHP หรือรันเว็บในเครื่องตัวเอง:
-1. ติดตั้งโปรแกรมจำลองเซิร์ฟเวอร์ เช่น **MAMP** หรือ **XAMPP**
-2. นำโฟลเดอร์โปรเจกต์นี้ไปวางไว้ใน `htdocs` (สำหรับ MAMP/XAMPP)
-3. เปิดเบราว์เซอร์ไปที่ `http://localhost/ชื่อโฟลเดอร์/index.php`
-
-## 🌐 Live Demo (เว็บไซต์ออนไลน์)
-ดูเว็บไซต์ที่ออนไลน์แล้วผ่าน GitHub Pages ได้ที่:
-👉 **[MENTUS Cactus Shop (GitHub Pages)](https://natthawut-81.github.io/final-mentus/)**
+เอกสารนี้รวบรวมข้อมูลเกี่ยวกับเทคโนโลยี เครื่องมือ และไลบรารีทั้งหมดที่ใช้ในการพัฒนาโปรเจกต์เว็บไซต์ **MENTUS Cactus Shop** 🌵
 
 ---
-**พัฒนาโดย:** MENTUS (Natthawut)
+
+## 1. 🎨 Frontend (ส่วนแสดงผลหน้าเว็บ)
+ส่วนที่ทำงานบนเบราว์เซอร์ของผู้ใช้งาน เน้นการแสดงผลที่สวยงาม หรูหรา (Premium Dark Green / Gold) และรองรับทุกขนาดหน้าจอ
+
+- **HTML5**: โครงสร้างหลักของหน้าเว็บทั้งหมด (Semantic HTML)
+- **CSS3 (Vanilla CSS)**: ใช้จัดสไตล์ทั้งหมด โดยไม่ใช้ Framework เพื่อความยืดหยุ่นสูงสุด
+  - รองรับ Responsive Design ด้วย `@media query`
+  - เอฟเฟกต์ CSS Transitions, Animations (Fade-in), และ Hover effects แบบนุ่มนวล
+  - Glassmorphism Effect (พื้นหลังเบลอ) สำหรับแถบ Navbar
+- **Vanilla JavaScript (ES6)**: จัดการการโต้ตอบของผู้ใช้ (Interactivity)
+  - ระบบ Hamburger Menu สำหรับมือถือ
+  - ระบบคัดกรองสินค้า (Search, Categories, Price Slider, Size Slider) ในหน้า Products
+  - ระบบ Hero Slider (สไลด์รูปภาพอัตโนมัติ) ในหน้าแรก
+
+## 2. 📝 Text Editor (ระบบแก้ไขข้อความ)
+- **Tiptap Editor (Headless Wrapper for ProseMirror)**: 
+  - ใช้สร้าง Rich Text Editor ในหน้าบทความและหน้าเกี่ยวกับเรา
+  - โหลดผ่าน ESM CDN (`esm.sh/@tiptap/core` และ `starter-kit`)
+  - ช่วยให้เจ้าของเว็บสามารถจัดรูปแบบข้อความ (ตัวหนา, ตัวเอียง, H2, Bullet List) ได้อย่างง่ายดายผ่านหน้าเว็บโดยตรง (เมื่อรันบน Localhost)
+
+## 3. ⚙️ Backend & Data Management (ส่วนจัดการข้อมูลและเซิร์ฟเวอร์)
+แม้ว่าโปรเจกต์สุดท้ายจะเป็น Static HTML แต่ในขั้นตอนการพัฒนาได้นำ PHP มาช่วยอำนวยความสะดวก
+
+- **PHP 8.x**:
+  - ใช้จัดการ Modular Components (แยก `header.php` และ `footer.php` เพื่อลดความซ้ำซ้อนของโค้ด)
+  - ใช้เก็บข้อมูลสินค้าในรูปแบบ Array (`$grid_products`) เพื่อง่ายต่อการ Loop ข้อมูล
+  - สคริปต์ `save_content.php` สำหรับรับข้อมูลจาก Tiptap Editor และเขียนลงไฟล์ JSON
+- **JSON (JavaScript Object Notation)**:
+  - ใช้ไฟล์ `data/content.json` เป็นฐานข้อมูลขนาดเล็ก (Flat-file database) สำหรับเก็บเนื้อหาบทความที่ถูกแก้ไขโดย Tiptap Editor
+
+## 4. 🧰 Development Tools (เครื่องมือสำหรับนักพัฒนา)
+- **MAMP / XAMPP**: โปรแกรมจำลองเซิร์ฟเวอร์แบบ Localhost สำหรับรันสคริปต์ PHP บนเครื่องคอมพิวเตอร์
+- **PHP Built-in Server**: ใช้ควบคู่กับ cURL Script เพื่อเรนเดอร์และแปลงไฟล์ `.php` ให้กลายเป็น `.html` อัตโนมัติสำหรับการนำไป Deploy
+
+## 5. 🚀 Deployment & Hosting (การให้บริการเว็บไซต์)
+- **Git & GitHub**: ระบบควบคุมเวอร์ชันของซอร์สโค้ด (Version Control)
+- **GitHub Pages**: บริการ Hosting ฟรีจาก GitHub สำหรับฝากไฟล์ Static HTML
+  - *ข้อจำกัด:* ไม่สามารถรัน PHP ได้ โปรเจกต์นี้จึงต้องแปลงไฟล์ทุกอย่างเป็น `.html` ผ่าน Localhost ก่อนทำการ `git push`
+
+## 6. 🖋 Typography & Assets
+- **Google Fonts**:
+  - `Itim` (อิทธิม) - ใช้สำหรับหัวข้อหลัก ให้ความรู้สึกเป็นมิตรและโดดเด่น
+  - `Kanit` (คณิต) - ใช้สำหรับเนื้อหาทั่วไป อ่านง่าย สบายตา
+- **Emojis**: ใช้เป็นไอคอนประกอบแบบน้ำหนักเบา โดยไม่ต้องพึ่งพาไลบรารีภายนอก (เช่น FontAwesome)
