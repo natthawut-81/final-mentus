@@ -23,28 +23,27 @@ $featured_products = [
 
 // Grid products
 $grid_products = [
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock1.png", "price" => "1,250", "category" => "gymno", "raw_price" => 1250, "size" => 3.2, "size" => "13"], 
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock2.png", "price" => "1,350", "category" => "gymno", "raw_price" => 1350, "size" => 6.1, "size" => "4"], 
-    ["title" => "ยิมโนลูกมังคุด", "img" => "photo/stock3.png", "price" => "1,450", "category" => "gymno", "raw_price" => 1450, "size" => 14.0, "size" => "3"], 
-    ["title" => "ยิมโนโนคริส", "img" => "photo/stock4.png", "price" => "350", "category" => "gymno", "raw_price" => 350, "size" => 2.6, "size" => "14"], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock5.png", "price" => "500", "category" => "gymno", "raw_price" => 500, "size" => 3.1, "size" => "7"], 
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock6.png", "price" => "3,500", "category" => "gymno", "raw_price" => 3500, "size" => 7.5, "size" => "6"], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock7.png", "price" => "1,590", "category" => "gymno", "raw_price" => 1590, "size" => 3.4, "size" => "6"], 
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock8.png", "price" => "2,300", "category" => "gymno", "raw_price" => 2300, "size" => 3.2, "size" => "5"], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock9.png", "price" => "2,900", "category" => "gymno", "raw_price" => 2900, "size" => 12.2, "size" => "14"], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock10.png", "price" => "1,990", "category" => "gymno", "raw_price" => 1990, "size" => 2.5, "size" => "4"], 
-    ["title" => "ยิมโนคริสไร้หนาม", "img" => "photo/stock11.png", "price" => "2,500", "category" => "gymno", "raw_price" => 2500, "size" => 12.5, "size" => "13"], 
-    ["title" => "ยิมโนLB Hybridด่าง", "img" => "photo/stock12.png", "price" => "899", "category" => "gymno", "raw_price" => 899, "size" => 6.7, "size" => "14"], 
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock13.png", "price" => "699", "category" => "gymno", "raw_price" => 699, "size" => 8.7, "size" => "11"], 
-    ["title" => "ยิมโนพิงค์ไดมอน", "img" => "photo/stock14.png", "price" => "1,500", "category" => "gymno", "raw_price" => 1500, "size" => 4.4, "size" => "4"], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส วา นูดัม", "img" => "photo/as1.png", "price" => "500", "category" => "astrophytum", "raw_price" => 500, "size" => 5.6, "size" => "12"], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์", "img" => "photo/as2.png", "price" => "650", "category" => "astrophytum", "raw_price" => 650, "size" => 12.3, "size" => "9"], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ", "img" => "photo/as3.png", "price" => "450", "category" => "astrophytum", "raw_price" => 450, "size" => 4.3, "size" => "3"], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ", "img" => "photo/as4.png", "price" => "850", "category" => "astrophytum", "raw_price" => 850, "size" => 4.6, "size" => "3"], 
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ", "img" => "photo/as5.png", "price" => "350", "category" => "astrophytum", "raw_price" => 350, "size" => 13.3, "size" => "4"], 
-    ["title" => "เเมมขนนกขาว", "img" => "photo/mam1.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 7.7, "size" => "6"], 
-    ["title" => "เเมมขนเเมว", "img" => "photo/mam2.png", "price" => "50", "category" => "mammillaria", "size" => "6"]
-];, "raw_price" => 50, "size" => 8.0]
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock1.png", "price" => "1,250", "category" => "gymno", "raw_price" => 1250, "size" => 13], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock2.png", "price" => "1,350", "category" => "gymno", "raw_price" => 1350, "size" => 4], 
+    ["title" => "ยิมโนลูกมังคุด", "img" => "photo/stock3.png", "price" => "1,450", "category" => "gymno", "raw_price" => 1450, "size" => 3], 
+    ["title" => "ยิมโนโนคริส", "img" => "photo/stock4.png", "price" => "350", "category" => "gymno", "raw_price" => 350, "size" => 14], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock5.png", "price" => "500", "category" => "gymno", "raw_price" => 500, "size" => 7], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock6.png", "price" => "3,500", "category" => "gymno", "raw_price" => 3500, "size" => 6], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock7.png", "price" => "1,590", "category" => "gymno", "raw_price" => 1590, "size" => 6], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock8.png", "price" => "2,300", "category" => "gymno", "raw_price" => 2300, "size" => 5], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock9.png", "price" => "2,900", "category" => "gymno", "raw_price" => 2900, "size" => 14], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock10.png", "price" => "1,990", "category" => "gymno", "raw_price" => 1990, "size" => 4], 
+    ["title" => "ยิมโนคริสไร้หนาม", "img" => "photo/stock11.png", "price" => "2,500", "category" => "gymno", "raw_price" => 2500, "size" => 13], 
+    ["title" => "ยิมโนLB Hybridด่าง", "img" => "photo/stock12.png", "price" => "899", "category" => "gymno", "raw_price" => 899, "size" => 14], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock13.png", "price" => "699", "category" => "gymno", "raw_price" => 699, "size" => 11], 
+    ["title" => "ยิมโนพิงค์ไดมอน", "img" => "photo/stock14.png", "price" => "1,500", "category" => "gymno", "raw_price" => 1500, "size" => 4], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส วา นูดัม", "img" => "photo/as1.png", "price" => "500", "category" => "astrophytum", "raw_price" => 500, "size" => 12], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์", "img" => "photo/as2.png", "price" => "650", "category" => "astrophytum", "raw_price" => 650, "size" => 9], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ", "img" => "photo/as3.png", "price" => "450", "category" => "astrophytum", "raw_price" => 450, "size" => 3], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ", "img" => "photo/as4.png", "price" => "850", "category" => "astrophytum", "raw_price" => 850, "size" => 3], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ", "img" => "photo/as5.png", "price" => "350", "category" => "astrophytum", "raw_price" => 350, "size" => 4], 
+    ["title" => "เเมมขนนกขาว", "img" => "photo/mam1.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 6], 
+    ["title" => "เเมมขนเเมว", "img" => "photo/mam2.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 8]
 ];
 
 include 'header.php'; 
