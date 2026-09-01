@@ -996,27 +996,24 @@
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
             const priceRange = document.getElementById('priceRange');
-            const priceValue = document.getElementById('priceValue');
+            const priceValue = document.getElementById('priceVal'); // Fixed ID
             const sizeRange = document.getElementById('sizeRange');
-            const sizeValue = document.getElementById('sizeValue');
-            const filterBtns = document.querySelectorAll('.filter-btn');
+            const sizeValue = document.getElementById('sizeVal'); // Fixed ID
+            const categoryRadios = document.querySelectorAll('input[name="category"]'); // Using radio buttons
             const productCards = Array.from(document.querySelectorAll('.product-item'));
-            const viewMoreBtn = document.getElementById('viewMoreBtn');
+            const noResult = document.getElementById('noResult');
             
             let activeCategory = 'all';
-
-            // Hide the view more button as we show all items now for filtering
-            if (viewMoreBtn) viewMoreBtn.style.display = 'none';
 
             function filterProducts() {
                 const searchTerm = searchInput.value.toLowerCase();
                 const maxPrice = parseInt(priceRange.value);
                 const maxSize = parseFloat(sizeRange.value);
-
+                
                 let visibleCount = 0;
 
                 productCards.forEach(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const title = card.getAttribute('data-title');
                     const category = card.getAttribute('data-category');
                     const price = parseInt(card.getAttribute('data-price'));
                     const size = parseFloat(card.getAttribute('data-size'));
@@ -1033,28 +1030,33 @@
                         card.style.display = 'none';
                     }
                 });
+                
+                if (visibleCount === 0) {
+                    noResult.style.display = 'block';
+                } else {
+                    noResult.style.display = 'none';
+                }
             }
 
             // Event Listeners
             searchInput.addEventListener('input', filterProducts);
             
             priceRange.addEventListener('input', (e) => {
-                priceValue.textContent = `สูงสุด ${parseInt(e.target.value).toLocaleString()} ฿`;
+                priceValue.textContent = parseInt(e.target.value).toLocaleString();
                 filterProducts();
             });
 
             sizeRange.addEventListener('input', (e) => {
-                sizeValue.textContent = `สูงสุด ${parseFloat(e.target.value).toFixed(1)} cm`;
+                sizeValue.textContent = parseFloat(e.target.value).toFixed(1);
                 filterProducts();
             });
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    activeCategory = btn.getAttribute('data-filter');
-                    filterProducts();
+            categoryRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        activeCategory = e.target.value;
+                        filterProducts();
+                    }
                 });
             });
 
