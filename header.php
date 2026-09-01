@@ -8,13 +8,6 @@ if ($current_page == '') $current_page = 'index.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MENTUS Cactus Shop</title>
-    <!-- Script to redirect to index.php on reload -->
-    <script>
-        const navEntries = performance.getEntriesByType("navigation");
-        if (navEntries.length > 0 && navEntries[0].type === "reload") {
-            window.location.href = 'index.php';
-        }
-    </script>
     <!-- นำเข้าฟอนต์ Itim และ Kanit จาก Google Fonts ให้เหมือนใน PDF -->
     <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
