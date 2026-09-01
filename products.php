@@ -23,27 +23,27 @@ $featured_products = [
 
 // Grid products
 $grid_products = [
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock1.png", "price" => "1,250", "category" => "gymno"],
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock2.png", "price" => "1,350", "category" => "gymno"],
-    ["title" => "ยิมโนลูกมังคุด", "img" => "photo/stock3.png", "price" => "1,450", "category" => "gymno"],
-    ["title" => "ยิมโนโนคริส", "img" => "photo/stock4.png", "price" => "350", "category" => "gymno"],
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock5.png", "price" => "500", "category" => "gymno"],
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock6.png", "price" => "3,500", "category" => "gymno"],
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock7.png", "price" => "1,590", "category" => "gymno"],
-    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock8.png", "price" => "2,300", "category" => "gymno"],
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock9.png", "price" => "2,900", "category" => "gymno"],
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock10.png", "price" => "1,990", "category" => "gymno"],
-    ["title" => "ยิมโนคริสไร้หนาม", "img" => "photo/stock11.png", "price" => "2,500", "category" => "gymno"],
-    ["title" => "ยิมโนLB Hybridด่าง", "img" => "photo/stock12.png", "price" => "899", "category" => "gymno"],
-    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock13.png", "price" => "699", "category" => "gymno"],
-    ["title" => "ยิมโนพิงค์ไดมอน", "img" => "photo/stock14.png", "price" => "1,500", "category" => "gymno"],
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส วา นูดัม", "img" => "photo/as1.png", "price" => "500", "category" => "astrophytum"],
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์", "img" => "photo/as2.png", "price" => "650", "category" => "astrophytum"],
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ", "img" => "photo/as3.png", "price" => "450", "category" => "astrophytum"],
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ", "img" => "photo/as4.png", "price" => "850", "category" => "astrophytum"],
-    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ", "img" => "photo/as5.png", "price" => "350", "category" => "astrophytum"],
-    ["title" => "เเมมขนนกขาว", "img" => "photo/mam1.png", "price" => "50", "category" => "mammillaria"],
-    ["title" => "เเมมขนเเมว", "img" => "photo/mam2.png", "price" => "50", "category" => "mammillaria"]
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock1.png", "price" => "1,250", "category" => "gymno", "raw_price" => 1250, "size" => 3.2], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock2.png", "price" => "1,350", "category" => "gymno", "raw_price" => 1350, "size" => 6.1], 
+    ["title" => "ยิมโนลูกมังคุด", "img" => "photo/stock3.png", "price" => "1,450", "category" => "gymno", "raw_price" => 1450, "size" => 14.0], 
+    ["title" => "ยิมโนโนคริส", "img" => "photo/stock4.png", "price" => "350", "category" => "gymno", "raw_price" => 350, "size" => 2.6], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock5.png", "price" => "500", "category" => "gymno", "raw_price" => 500, "size" => 3.1], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock6.png", "price" => "3,500", "category" => "gymno", "raw_price" => 3500, "size" => 7.5], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock7.png", "price" => "1,590", "category" => "gymno", "raw_price" => 1590, "size" => 3.4], 
+    ["title" => "ยิมโนลูกมังคุดด่าง", "img" => "photo/stock8.png", "price" => "2,300", "category" => "gymno", "raw_price" => 2300, "size" => 3.2], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock9.png", "price" => "2,900", "category" => "gymno", "raw_price" => 2900, "size" => 12.2], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock10.png", "price" => "1,990", "category" => "gymno", "raw_price" => 1990, "size" => 2.5], 
+    ["title" => "ยิมโนคริสไร้หนาม", "img" => "photo/stock11.png", "price" => "2,500", "category" => "gymno", "raw_price" => 2500, "size" => 12.5], 
+    ["title" => "ยิมโนLB Hybridด่าง", "img" => "photo/stock12.png", "price" => "899", "category" => "gymno", "raw_price" => 899, "size" => 6.7], 
+    ["title" => "ยิมโนคริสไร้หนามด่าง", "img" => "photo/stock13.png", "price" => "699", "category" => "gymno", "raw_price" => 699, "size" => 8.7], 
+    ["title" => "ยิมโนพิงค์ไดมอน", "img" => "photo/stock14.png", "price" => "1,500", "category" => "gymno", "raw_price" => 1500, "size" => 4.4], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส วา นูดัม", "img" => "photo/as1.png", "price" => "500", "category" => "astrophytum", "raw_price" => 500, "size" => 5.6], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์", "img" => "photo/as2.png", "price" => "650", "category" => "astrophytum", "raw_price" => 650, "size" => 12.3], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ", "img" => "photo/as3.png", "price" => "450", "category" => "astrophytum", "raw_price" => 450, "size" => 4.3], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ", "img" => "photo/as4.png", "price" => "850", "category" => "astrophytum", "raw_price" => 850, "size" => 4.6], 
+    ["title" => "แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ", "img" => "photo/as5.png", "price" => "350", "category" => "astrophytum", "raw_price" => 350, "size" => 13.3], 
+    ["title" => "เเมมขนนกขาว", "img" => "photo/mam1.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 7.7], 
+    ["title" => "เเมมขนเเมว", "img" => "photo/mam2.png", "price" => "50", "category" => "mammillaria", "raw_price" => 50, "size" => 8.0]
 ];
 
 include 'header.php'; 
@@ -196,6 +196,65 @@ include 'header.php';
         }
     }
 
+
+    /* Advanced Filter UI */
+    .filter-panel {
+        background-color: #08140c;
+        border: 1px solid #d4af37;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+    .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .search-box {
+        flex: 1;
+        min-width: 250px;
+        position: relative;
+    }
+    .search-box input {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-family: 'Kanit', sans-serif;
+    }
+    .search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .slider-group {
+        flex: 1;
+        min-width: 250px;
+        color: white;
+        font-family: 'Kanit', sans-serif;
+    }
+    .slider-group label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        color: #d4af37;
+    }
+    input[type=range] {
+        width: 100%;
+        accent-color: #d4af37;
+    }
+    .category-filters {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
     /* Filter Buttons */
     .filter-btn {
         background-color: transparent;
@@ -297,19 +356,41 @@ include 'header.php';
         <!-- All Products Heading and Filters -->
         <h2 style="text-align: center; color: white; font-size: 36px; margin-bottom: 20px;" class="fade-in">สินค้าทั้งหมด</h2>
         
-        <div class="category-filters fade-in delay-1">
-            <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
-            <button class="filter-btn" data-filter="gymno">ยิมโน</button>
-            <button class="filter-btn" data-filter="mammillaria">แมมมิลาเรีย</button>
-            <button class="filter-btn" data-filter="astrophytum">แอสโตรไฟตัม</button>
+        
+        <!-- Advanced Filter Panel -->
+        <div class="filter-panel fade-in delay-1">
+            <div class="filter-row">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 ค้นหาสินค้า (พิมพ์ชื่อ หรือสายพันธุ์)...">
+                </div>
+                
+                <div class="slider-group">
+                    <label><span>ราคา: </span> <span id="priceValue">สูงสุด 3,500 ฿</span></label>
+                    <input type="range" id="priceRange" min="0" max="3500" value="3500" step="50">
+                </div>
+                
+                <div class="slider-group">
+                    <label><span>ขนาด (cm): </span> <span id="sizeValue">สูงสุด 15.0 cm</span></label>
+                    <input type="range" id="sizeRange" min="0" max="15" value="15" step="0.5">
+                </div>
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="gymno">ยิมโน</button>
+                <button class="filter-btn" data-filter="mammillaria">แมมมิลาเรีย</button>
+                <button class="filter-btn" data-filter="astrophytum">แอสโตรไฟตัม</button>
+            </div>
         </div>
+
 
         <!-- Regular Grid -->
         <div class="product-grid fade-in delay-2" id="productGrid">
             <?php foreach($grid_products as $prod): ?>
-            <div class="product-card product-item" data-category="<?= $prod['category'] ?>">
+            <div class="product-card product-item" data-category="<?= $prod['category'] ?>" data-price="<?= $prod['raw_price'] ?>" data-size="<?= $prod['size'] ?>">
                 <img src="<?= $prod['img'] ?>" alt="<?= $prod['title'] ?>">
                 <h3><?= $prod['title'] ?></h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: <?= $prod['size'] ?> cm</p>
                 <?php if(isset($prod['price'])): ?>
                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา <?= $prod['price'] ?> บาท</p>
                 <?php endif; ?>
@@ -323,66 +404,78 @@ include 'header.php';
 
     </section>
 
-    <!-- Filter Script -->
+    
+    <!-- Advanced Filter Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const priceRange = document.getElementById('priceRange');
+            const priceValue = document.getElementById('priceValue');
+            const sizeRange = document.getElementById('sizeRange');
+            const sizeValue = document.getElementById('sizeValue');
             const filterBtns = document.querySelectorAll('.filter-btn');
             const productCards = Array.from(document.querySelectorAll('.product-item'));
             const viewMoreBtn = document.getElementById('viewMoreBtn');
+            
+            let activeCategory = 'all';
 
-            // Initialize random 4 products
-            function initializeGrid() {
-                // Hide all cards first
-                productCards.forEach(card => card.style.display = 'none');
-                
-                // Shuffle cards and show only 4
-                const shuffled = [...productCards].sort(() => 0.5 - Math.random());
-                shuffled.slice(0, 4).forEach(card => {
-                    card.style.display = 'block';
-                });
-                
-                viewMoreBtn.style.display = 'inline-block';
-            }
+            // Hide the view more button as we show all items now for filtering
+            if (viewMoreBtn) viewMoreBtn.style.display = 'none';
 
-            function showAll(filterValue = 'all') {
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const maxPrice = parseInt(priceRange.value);
+                const maxSize = parseFloat(sizeRange.value);
+
+                let visibleCount = 0;
+
                 productCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+                    const price = parseInt(card.getAttribute('data-price'));
+                    const size = parseFloat(card.getAttribute('data-size'));
+
+                    const matchSearch = title.includes(searchTerm);
+                    const matchCategory = (activeCategory === 'all' || category === activeCategory);
+                    const matchPrice = (price <= maxPrice);
+                    const matchSize = (size <= maxSize);
+
+                    if (matchSearch && matchCategory && matchPrice && matchSize) {
                         card.style.display = 'block';
+                        visibleCount++;
                     } else {
                         card.style.display = 'none';
                     }
                 });
-                viewMoreBtn.style.display = 'none'; // Hide button after expanding
             }
+
+            // Event Listeners
+            searchInput.addEventListener('input', filterProducts);
+            
+            priceRange.addEventListener('input', (e) => {
+                priceValue.textContent = `สูงสุด ${parseInt(e.target.value).toLocaleString()} ฿`;
+                filterProducts();
+            });
+
+            sizeRange.addEventListener('input', (e) => {
+                sizeValue.textContent = `สูงสุด ${parseFloat(e.target.value).toFixed(1)} cm`;
+                filterProducts();
+            });
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
-                    // Update active state
                     filterBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    
-                    const filterValue = btn.getAttribute('data-filter');
-                    
-                    // When a filter is clicked, we just show all items in that category
-                    showAll(filterValue);
+                    activeCategory = btn.getAttribute('data-filter');
+                    filterProducts();
                 });
             });
 
-            viewMoreBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Force "All" filter to be active
-                filterBtns.forEach(b => b.classList.remove('active'));
-                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-                
-                showAll('all');
-            });
-
-            // Set initial state
-            initializeGrid();
+            // Initial load
+            filterProducts();
         });
     </script>
+
 
 <?php include 'footer.php'; ?>

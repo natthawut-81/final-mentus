@@ -423,6 +423,65 @@
         }
     }
 
+
+    /* Advanced Filter UI */
+    .filter-panel {
+        background-color: #08140c;
+        border: 1px solid #d4af37;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+    .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .search-box {
+        flex: 1;
+        min-width: 250px;
+        position: relative;
+    }
+    .search-box input {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-family: 'Kanit', sans-serif;
+    }
+    .search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .slider-group {
+        flex: 1;
+        min-width: 250px;
+        color: white;
+        font-family: 'Kanit', sans-serif;
+    }
+    .slider-group label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        color: #d4af37;
+    }
+    input[type=range] {
+        width: 100%;
+        accent-color: #d4af37;
+    }
+    .category-filters {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
     /* Filter Buttons */
     .filter-btn {
         background-color: transparent;
@@ -571,118 +630,160 @@
         <!-- All Products Heading and Filters -->
         <h2 style="text-align: center; color: white; font-size: 36px; margin-bottom: 20px;" class="fade-in">สินค้าทั้งหมด</h2>
         
-        <div class="category-filters fade-in delay-1">
-            <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
-            <button class="filter-btn" data-filter="gymno">ยิมโน</button>
-            <button class="filter-btn" data-filter="mammillaria">แมมมิลาเรีย</button>
-            <button class="filter-btn" data-filter="astrophytum">แอสโตรไฟตัม</button>
+        
+        <!-- Advanced Filter Panel -->
+        <div class="filter-panel fade-in delay-1">
+            <div class="filter-row">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 ค้นหาสินค้า (พิมพ์ชื่อ หรือสายพันธุ์)...">
+                </div>
+                
+                <div class="slider-group">
+                    <label><span>ราคา: </span> <span id="priceValue">สูงสุด 3,500 ฿</span></label>
+                    <input type="range" id="priceRange" min="0" max="3500" value="3500" step="50">
+                </div>
+                
+                <div class="slider-group">
+                    <label><span>ขนาด (cm): </span> <span id="sizeValue">สูงสุด 15.0 cm</span></label>
+                    <input type="range" id="sizeRange" min="0" max="15" value="15" step="0.5">
+                </div>
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="gymno">ยิมโน</button>
+                <button class="filter-btn" data-filter="mammillaria">แมมมิลาเรีย</button>
+                <button class="filter-btn" data-filter="astrophytum">แอสโตรไฟตัม</button>
+            </div>
         </div>
+
 
         <!-- Regular Grid -->
         <div class="product-grid fade-in delay-2" id="productGrid">
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="1250" data-size="3.2">
                 <img src="photo/stock1.png" alt="ยิมโนคริสไร้หนามด่าง">
                 <h3>ยิมโนคริสไร้หนามด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 3.2 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 1,250 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="1350" data-size="6.1">
                 <img src="photo/stock2.png" alt="ยิมโนลูกมังคุดด่าง">
                 <h3>ยิมโนลูกมังคุดด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 6.1 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 1,350 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="1450" data-size="14">
                 <img src="photo/stock3.png" alt="ยิมโนลูกมังคุด">
                 <h3>ยิมโนลูกมังคุด</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 14 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 1,450 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="350" data-size="2.6">
                 <img src="photo/stock4.png" alt="ยิมโนโนคริส">
                 <h3>ยิมโนโนคริส</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 2.6 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 350 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="500" data-size="3.1">
                 <img src="photo/stock5.png" alt="ยิมโนคริสไร้หนามด่าง">
                 <h3>ยิมโนคริสไร้หนามด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 3.1 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 500 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="3500" data-size="7.5">
                 <img src="photo/stock6.png" alt="ยิมโนลูกมังคุดด่าง">
                 <h3>ยิมโนลูกมังคุดด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 7.5 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 3,500 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="1590" data-size="3.4">
                 <img src="photo/stock7.png" alt="ยิมโนคริสไร้หนามด่าง">
                 <h3>ยิมโนคริสไร้หนามด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 3.4 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 1,590 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="2300" data-size="3.2">
                 <img src="photo/stock8.png" alt="ยิมโนลูกมังคุดด่าง">
                 <h3>ยิมโนลูกมังคุดด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 3.2 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 2,300 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="2900" data-size="12.2">
                 <img src="photo/stock9.png" alt="ยิมโนคริสไร้หนามด่าง">
                 <h3>ยิมโนคริสไร้หนามด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 12.2 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 2,900 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="1990" data-size="2.5">
                 <img src="photo/stock10.png" alt="ยิมโนคริสไร้หนามด่าง">
                 <h3>ยิมโนคริสไร้หนามด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 2.5 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 1,990 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="2500" data-size="12.5">
                 <img src="photo/stock11.png" alt="ยิมโนคริสไร้หนาม">
                 <h3>ยิมโนคริสไร้หนาม</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 12.5 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 2,500 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="899" data-size="6.7">
                 <img src="photo/stock12.png" alt="ยิมโนLB Hybridด่าง">
                 <h3>ยิมโนLB Hybridด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 6.7 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 899 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="699" data-size="8.7">
                 <img src="photo/stock13.png" alt="ยิมโนคริสไร้หนามด่าง">
                 <h3>ยิมโนคริสไร้หนามด่าง</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 8.7 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 699 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="gymno">
+                        <div class="product-card product-item" data-category="gymno" data-price="1500" data-size="4.4">
                 <img src="photo/stock14.png" alt="ยิมโนพิงค์ไดมอน">
                 <h3>ยิมโนพิงค์ไดมอน</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 4.4 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 1,500 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="astrophytum">
+                        <div class="product-card product-item" data-category="astrophytum" data-price="500" data-size="5.6">
                 <img src="photo/as1.png" alt="แอสโตรไฟตัมแอสทีเรียส วา นูดัม">
                 <h3>แอสโตรไฟตัมแอสทีเรียส วา นูดัม</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 5.6 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 500 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="astrophytum">
+                        <div class="product-card product-item" data-category="astrophytum" data-price="650" data-size="12.3">
                 <img src="photo/as2.png" alt="แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์">
                 <h3>แอสโตรไฟตัมแอสทีเรียส “Super” ซุปเปอร์</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 12.3 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 650 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="astrophytum">
+                        <div class="product-card product-item" data-category="astrophytum" data-price="450" data-size="4.3">
                 <img src="photo/as3.png" alt="แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ">
                 <h3>แอสโตรไฟตัมแอสทีเรียส “Star-shape” สตาร์เชฟ</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 4.3 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 450 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="astrophytum">
+                        <div class="product-card product-item" data-category="astrophytum" data-price="850" data-size="4.6">
                 <img src="photo/as4.png" alt="แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ">
                 <h3>แอสโตรไฟตัมแอสทีเรียส “Kikko” กิ๊ก-โก๊ะ</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 4.6 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 850 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="astrophytum">
+                        <div class="product-card product-item" data-category="astrophytum" data-price="350" data-size="13.3">
                 <img src="photo/as5.png" alt="แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ">
                 <h3>แอสโตรไฟตัมแอสทีเรียส “Kabuto”คาบูโตะ</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 13.3 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 350 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="mammillaria">
+                        <div class="product-card product-item" data-category="mammillaria" data-price="50" data-size="7.7">
                 <img src="photo/mam1.png" alt="เเมมขนนกขาว">
                 <h3>เเมมขนนกขาว</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 7.7 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 50 บาท</p>
                             </div>
-                        <div class="product-card product-item" data-category="mammillaria">
+                        <div class="product-card product-item" data-category="mammillaria" data-price="50" data-size="8">
                 <img src="photo/mam2.png" alt="เเมมขนเเมว">
                 <h3>เเมมขนเเมว</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px;">ขนาด: 8 cm</p>
                                 <p class="gold-text" style="margin-top: 5px; font-weight: bold;">ราคา 50 บาท</p>
                             </div>
                     </div>
@@ -693,67 +794,79 @@
 
     </section>
 
-    <!-- Filter Script -->
+    
+    <!-- Advanced Filter Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const priceRange = document.getElementById('priceRange');
+            const priceValue = document.getElementById('priceValue');
+            const sizeRange = document.getElementById('sizeRange');
+            const sizeValue = document.getElementById('sizeValue');
             const filterBtns = document.querySelectorAll('.filter-btn');
             const productCards = Array.from(document.querySelectorAll('.product-item'));
             const viewMoreBtn = document.getElementById('viewMoreBtn');
+            
+            let activeCategory = 'all';
 
-            // Initialize random 4 products
-            function initializeGrid() {
-                // Hide all cards first
-                productCards.forEach(card => card.style.display = 'none');
-                
-                // Shuffle cards and show only 4
-                const shuffled = [...productCards].sort(() => 0.5 - Math.random());
-                shuffled.slice(0, 4).forEach(card => {
-                    card.style.display = 'block';
-                });
-                
-                viewMoreBtn.style.display = 'inline-block';
-            }
+            // Hide the view more button as we show all items now for filtering
+            if (viewMoreBtn) viewMoreBtn.style.display = 'none';
 
-            function showAll(filterValue = 'all') {
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const maxPrice = parseInt(priceRange.value);
+                const maxSize = parseFloat(sizeRange.value);
+
+                let visibleCount = 0;
+
                 productCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+                    const price = parseInt(card.getAttribute('data-price'));
+                    const size = parseFloat(card.getAttribute('data-size'));
+
+                    const matchSearch = title.includes(searchTerm);
+                    const matchCategory = (activeCategory === 'all' || category === activeCategory);
+                    const matchPrice = (price <= maxPrice);
+                    const matchSize = (size <= maxSize);
+
+                    if (matchSearch && matchCategory && matchPrice && matchSize) {
                         card.style.display = 'block';
+                        visibleCount++;
                     } else {
                         card.style.display = 'none';
                     }
                 });
-                viewMoreBtn.style.display = 'none'; // Hide button after expanding
             }
+
+            // Event Listeners
+            searchInput.addEventListener('input', filterProducts);
+            
+            priceRange.addEventListener('input', (e) => {
+                priceValue.textContent = `สูงสุด ${parseInt(e.target.value).toLocaleString()} ฿`;
+                filterProducts();
+            });
+
+            sizeRange.addEventListener('input', (e) => {
+                sizeValue.textContent = `สูงสุด ${parseFloat(e.target.value).toFixed(1)} cm`;
+                filterProducts();
+            });
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
-                    // Update active state
                     filterBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    
-                    const filterValue = btn.getAttribute('data-filter');
-                    
-                    // When a filter is clicked, we just show all items in that category
-                    showAll(filterValue);
+                    activeCategory = btn.getAttribute('data-filter');
+                    filterProducts();
                 });
             });
 
-            viewMoreBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Force "All" filter to be active
-                filterBtns.forEach(b => b.classList.remove('active'));
-                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-                
-                showAll('all');
-            });
-
-            // Set initial state
-            initializeGrid();
+            // Initial load
+            filterProducts();
         });
     </script>
+
 
     <!-- Footer -->
     <footer style="background-color: #0c1c12; padding: 40px 5% 20px; color: #f4f6f5; margin-top: 40px;">
