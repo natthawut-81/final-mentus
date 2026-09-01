@@ -9,10 +9,13 @@
 - **GitHub Pages Ready:** รองรับการอัปโหลดและแสดงผลผ่าน GitHub Pages (ผ่านไฟล์ `.html`)
 
 ## 🛠 Technologies Used (เทคโนโลยีที่ใช้)
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript
-- **Backend / Templating:** PHP (ใช้สำหรับการเขียนโค้ดแบบแยกส่วน Header / Footer และระบบ Array ข้อมูลสินค้า)
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6)
+- **Text Editor:** Tiptap Editor (ระบบแก้ไขข้อความแบบ Rich Text)
+- **Backend & Data:** PHP 8.x (สำหรับระบบ Modular และสคริปต์เซฟข้อมูล) และ JSON (ฐานข้อมูลแบบ Flat-file)
 - **Fonts:** Google Fonts (`Itim` สำหรับหัวข้อ, `Kanit` สำหรับเนื้อหาทั่วไป)
-- **Version Control:** Git & GitHub
+- **Tools & Version Control:** Git, GitHub, GitHub Pages และ MAMP / XAMPP
+
+*(สามารถอ่านรายละเอียดเชิงลึกได้ที่ไฟล์ [TECH_STACK.md](TECH_STACK.md))*
 
 ## 📂 Project Structure (โครงสร้างโปรเจกต์)
 โปรเจกต์นี้มีโครงสร้างไฟล์สองส่วนหลักๆ คือ:
