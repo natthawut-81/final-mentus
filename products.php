@@ -408,7 +408,18 @@ include 'header.php';
     }
     @media (max-width: 768px) {
         .product-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .product-card h3 {
+            font-size: 14px;
+        }
+        .product-card .gold-text {
+            font-size: 14px !important;
+        }
+        .size-tag {
+            font-size: 10px;
+            padding: 2px 6px;
         }
     }
 
