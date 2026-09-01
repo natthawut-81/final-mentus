@@ -119,72 +119,135 @@ include 'header.php';
         margin: 0 auto 80px auto;
         padding: 0 20px;
     }
+    
+    /* Advanced Tiptap Editor Styles */
     .editor-wrapper {
         background: rgba(255, 255, 255, 0.02);
         border: 1px solid rgba(212, 175, 55, 0.2);
-        border-radius: 20px;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 40px;
     }
-    
-    .article-tiptap {
-        min-height: 400px;
+    .tiptap, .article-tiptap {
+        min-height: 300px;
         outline: none;
         color: rgba(255,255,255,0.85);
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.8;
     }
-    .article-tiptap h2 {
+    .tiptap p, .article-tiptap p {
+        margin-bottom: 1em;
+    }
+    .tiptap strong, .article-tiptap strong {
+        color: inherit;
+        font-weight: bold;
+    }
+    .tiptap h1, .article-tiptap h1 {
+        font-size: 32px;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
         color: #d4af37;
-        font-size: 28px;
-        margin-top: 40px;
-        margin-bottom: 15px;
+    }
+    .tiptap h2, .article-tiptap h2 {
+        font-size: 26px;
+        margin-top: 1.2em;
+        margin-bottom: 0.5em;
+        color: #d4af37;
         border-bottom: 1px solid rgba(212,175,55,0.2);
-        padding-bottom: 10px;
+        padding-bottom: 8px;
     }
-    .article-tiptap h2:first-child {
-        margin-top: 0;
+    .tiptap h3, .article-tiptap h3 {
+        font-size: 20px;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        color: #e6c55b;
     }
-    .article-tiptap p {
-        margin-bottom: 20px;
-    }
-    .article-tiptap ul {
+    .tiptap ul, .article-tiptap ul {
         margin-left: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 1em;
+        list-style-type: disc;
     }
-    .article-tiptap li {
-        margin-bottom: 10px;
+    .tiptap ol, .article-tiptap ol {
+        margin-left: 20px;
+        margin-bottom: 1em;
+        list-style-type: decimal;
     }
-    .article-tiptap strong {
-        color: #d4af37;
+    .tiptap li, .article-tiptap li {
+        margin-bottom: 5px;
+    }
+    .tiptap blockquote, .article-tiptap blockquote {
+        border-left: 4px solid #d4af37;
+        padding-left: 15px;
+        margin-left: 0;
+        font-style: italic;
+        background: rgba(212, 175, 55, 0.05);
+        padding: 10px 15px;
+        border-radius: 0 8px 8px 0;
+    }
+    .tiptap img, .article-tiptap img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+        margin: 15px auto;
+    }
+    .tiptap a, .article-tiptap a {
+        color: #4caf50;
+        text-decoration: underline;
     }
     
     .editor-toolbar {
-        display: none;
-        gap: 10px;
-        margin-bottom: 30px;
+        display: none; /* Hidden by default */
+        gap: 15px;
+        margin-bottom: 20px;
         padding-bottom: 15px;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         flex-wrap: wrap;
+    }
+    .toolbar-group {
+        display: flex;
+        gap: 5px;
+        background: rgba(0,0,0,0.2);
+        padding: 5px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.05);
+        align-items: center;
     }
     .editor-btn {
         background: transparent;
-        border: 1px solid rgba(212, 175, 55, 0.5);
+        border: none;
         color: #d4af37;
         border-radius: 5px;
-        padding: 5px 15px;
+        padding: 6px 10px;
         cursor: pointer;
         font-family: inherit;
         font-size: 14px;
         transition: 0.2s;
     }
     .editor-btn:hover, .editor-btn.is-active {
-        background: #d4af37;
-        color: #08140c;
+        background: rgba(212, 175, 55, 0.2);
     }
+    .color-picker-container {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0 10px;
+        color: #d4af37;
+        font-size: 14px;
+    }
+    .color-picker-container input {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        background: transparent;
+    }
+    
     #saveBtn {
         display: none;
-        margin-top: 30px;
+        margin-top: 20px;
         background: #d4af37;
         color: #08140c;
         border: none;
@@ -194,9 +257,11 @@ include 'header.php';
         font-weight: bold;
         font-size: 16px;
         width: 100%;
+        transition: 0.3s;
     }
     #saveBtn:hover {
         background: #e6c55b;
+        transform: translateY(-2px);
     }
 
 </style>
@@ -211,14 +276,39 @@ include 'header.php';
     
     <div class="article-content-container fade-in delay-2">
         <div class="editor-wrapper">
-            <div class="editor-toolbar" id="editorToolbar">
-                <button class="editor-btn" id="btnBold">B</button>
-                <button class="editor-btn" id="btnItalic">I</button>
-                <button class="editor-btn" id="btnH2">หัวข้อ (H2)</button>
-                <button class="editor-btn" id="btnBullet">รายการ (Bullet)</button>
-            </div>
             
-            <div id="editor-container" class="article-tiptap"></div>
+                <div class="editor-toolbar" id="editorToolbar">
+                    <div class="toolbar-group">
+                        <button class="editor-btn" id="btnBold" title="ตัวหนา"><b>B</b></button>
+                        <button class="editor-btn" id="btnItalic" title="ตัวเอียง"><i>I</i></button>
+                        <button class="editor-btn" id="btnUnderline" title="ขีดเส้นใต้"><u>U</u></button>
+                        <button class="editor-btn" id="btnStrike" title="ขีดฆ่า"><s>S</s></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="editor-btn" id="btnH1">H1</button>
+                        <button class="editor-btn" id="btnH2">H2</button>
+                        <button class="editor-btn" id="btnH3">H3</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="editor-btn" id="btnAlignLeft" title="ชิดซ้าย">⬅️</button>
+                        <button class="editor-btn" id="btnAlignCenter" title="กึ่งกลาง">↔️</button>
+                        <button class="editor-btn" id="btnAlignRight" title="ชิดขวา">➡️</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="editor-btn" id="btnBullet" title="รายการแบบจุด">● List</button>
+                        <button class="editor-btn" id="btnOrdered" title="รายการแบบตัวเลข">1. List</button>
+                        <button class="editor-btn" id="btnQuote" title="อ้างอิง">❝ Quote</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="editor-btn" id="btnLink" title="แทรกลิงก์">🔗 ลิงก์</button>
+                        <button class="editor-btn" id="btnImage" title="แทรกรูปภาพ">🖼️ รูปภาพ</button>
+                        <div class="color-picker-container" title="สีตัวอักษร">
+                            🎨 <input type="color" id="colorPicker" value="#ffffff">
+                        </div>
+                    </div>
+                </div>
+
+<div id="editor-container" class="article-tiptap"></div>
             
             <button id="saveBtn">💾 บันทึกเนื้อหา (Save)</button>
         </div>
@@ -227,9 +317,16 @@ include 'header.php';
 </section>
 
 
+
 <script type="module">
     import { Editor } from 'https://esm.sh/@tiptap/core';
     import StarterKit from 'https://esm.sh/@tiptap/starter-kit';
+    import Underline from 'https://esm.sh/@tiptap/extension-underline';
+    import TextAlign from 'https://esm.sh/@tiptap/extension-text-align';
+    import Link from 'https://esm.sh/@tiptap/extension-link';
+    import Image from 'https://esm.sh/@tiptap/extension-image';
+    import TextStyle from 'https://esm.sh/@tiptap/extension-text-style';
+    import Color from 'https://esm.sh/@tiptap/extension-color';
 
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const initialContent = <?php echo json_encode($pageContent); ?>;
@@ -241,22 +338,77 @@ include 'header.php';
 
     const editor = new Editor({
         element: document.querySelector('#editor-container'),
-        extensions: [StarterKit],
+        extensions: [
+            StarterKit,
+            Underline,
+            TextAlign.configure({ types: ['heading', 'paragraph'] }),
+            Link.configure({ openOnClick: false }),
+            Image,
+            TextStyle,
+            Color
+        ],
         content: initialContent,
         editable: isLocalhost,
         onTransaction: () => {
+            // Update active states
             document.getElementById('btnBold').classList.toggle('is-active', editor.isActive('bold'));
             document.getElementById('btnItalic').classList.toggle('is-active', editor.isActive('italic'));
+            document.getElementById('btnUnderline').classList.toggle('is-active', editor.isActive('underline'));
+            document.getElementById('btnStrike').classList.toggle('is-active', editor.isActive('strike'));
+            document.getElementById('btnH1').classList.toggle('is-active', editor.isActive('heading', { level: 1 }));
             document.getElementById('btnH2').classList.toggle('is-active', editor.isActive('heading', { level: 2 }));
+            document.getElementById('btnH3').classList.toggle('is-active', editor.isActive('heading', { level: 3 }));
+            document.getElementById('btnAlignLeft').classList.toggle('is-active', editor.isActive({ textAlign: 'left' }));
+            document.getElementById('btnAlignCenter').classList.toggle('is-active', editor.isActive({ textAlign: 'center' }));
+            document.getElementById('btnAlignRight').classList.toggle('is-active', editor.isActive({ textAlign: 'right' }));
             document.getElementById('btnBullet').classList.toggle('is-active', editor.isActive('bulletList'));
+            document.getElementById('btnOrdered').classList.toggle('is-active', editor.isActive('orderedList'));
+            document.getElementById('btnQuote').classList.toggle('is-active', editor.isActive('blockquote'));
+            document.getElementById('btnLink').classList.toggle('is-active', editor.isActive('link'));
         }
     });
 
+    // Toolbar actions
     document.getElementById('btnBold').addEventListener('click', () => editor.chain().focus().toggleBold().run());
     document.getElementById('btnItalic').addEventListener('click', () => editor.chain().focus().toggleItalic().run());
+    document.getElementById('btnUnderline').addEventListener('click', () => editor.chain().focus().toggleUnderline().run());
+    document.getElementById('btnStrike').addEventListener('click', () => editor.chain().focus().toggleStrike().run());
+    
+    document.getElementById('btnH1').addEventListener('click', () => editor.chain().focus().toggleHeading({ level: 1 }).run());
     document.getElementById('btnH2').addEventListener('click', () => editor.chain().focus().toggleHeading({ level: 2 }).run());
+    document.getElementById('btnH3').addEventListener('click', () => editor.chain().focus().toggleHeading({ level: 3 }).run());
+    
+    document.getElementById('btnAlignLeft').addEventListener('click', () => editor.chain().focus().setTextAlign('left').run());
+    document.getElementById('btnAlignCenter').addEventListener('click', () => editor.chain().focus().setTextAlign('center').run());
+    document.getElementById('btnAlignRight').addEventListener('click', () => editor.chain().focus().setTextAlign('right').run());
+    
     document.getElementById('btnBullet').addEventListener('click', () => editor.chain().focus().toggleBulletList().run());
+    document.getElementById('btnOrdered').addEventListener('click', () => editor.chain().focus().toggleOrderedList().run());
+    document.getElementById('btnQuote').addEventListener('click', () => editor.chain().focus().toggleBlockquote().run());
+    
+    document.getElementById('btnLink').addEventListener('click', () => {
+        const previousUrl = editor.getAttributes('link').href
+        const url = window.prompt('URL:', previousUrl)
+        if (url === null) return
+        if (url === '') {
+            editor.chain().focus().extendMarkRange('link').unsetLink().run()
+            return
+        }
+        editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
+    });
+    
+    document.getElementById('btnImage').addEventListener('click', () => {
+        const url = window.prompt('URL รูปภาพ (Image URL):')
+        if (url) {
+            editor.chain().focus().setImage({ src: url }).run()
+        }
+    });
+    
+    document.getElementById('colorPicker').addEventListener('input', (e) => {
+        editor.chain().focus().setColor(e.target.value).run();
+    });
 
+    // Save action
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
         saveBtn.addEventListener('click', () => {
@@ -285,5 +437,6 @@ include 'header.php';
         });
     }
 </script>
+
 
 <?php include 'footer.php'; ?>
